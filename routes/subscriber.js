@@ -2,13 +2,7 @@ var express = require("express");
 var router = express.Router();
 const subscriberModel = require("../models/subscribers");
 
-//Create a Root Route for API Documentation
-// router.get("/", (req, res) => {
-//   try {
-//     res.sendFile(path.join(__dirname,'/index.html'));
-//   } catch (error) {
-//   }
-// });
+
 
 //Create a Subscriber Route for fetching All Data from Database
 router.get("/subscriber", async (req, res) => {
@@ -26,7 +20,7 @@ router.get("/subscriber/name", async (req, res) => {
     const students = await subscriberModel.find({},"name subscribedChannel -_id");
     res.send(students);
   } catch (error) {
-    res.status(500).send("Internal Server Error for name");
+    res.status(500).send("Internal Server Error ");
   }
 });
 
